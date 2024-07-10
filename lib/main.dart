@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_projects/explicit_animation/bouncing_ball_animation.dart';
+import 'package:flutter_animation_projects/explicit_animation/multiple_animation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BouncingBallAnimation(),
+      home: const MultipleAnimation(),
     );
   }
 }
