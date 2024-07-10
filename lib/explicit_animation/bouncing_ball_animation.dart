@@ -13,7 +13,6 @@ class _BouncingBallAnimationState extends State<BouncingBallAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<double> positionAnimation;
-  
 
   @override
   void initState() {
@@ -38,7 +37,6 @@ class _BouncingBallAnimationState extends State<BouncingBallAnimation>
       });
 
     controller.forward();
-   
   }
 
   @override
@@ -48,7 +46,7 @@ class _BouncingBallAnimationState extends State<BouncingBallAnimation>
   }
 
   @override
-  Widget build(BuildContext context) {     
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -62,24 +60,33 @@ class _BouncingBallAnimationState extends State<BouncingBallAnimation>
         centerTitle: true,
       ),
       body: SafeArea(
-        child: Center(
-          child: AnimatedBuilder(
-              animation: controller,
-              builder: (context, child) {
-                return Container(
-                  width: 100,
-                  height: 100,
-                  decoration: const BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.circle,
-                  ),
-                  transform: Matrix4.translationValues(
-                    0,
-                    positionAnimation.value,
-                    0,
-                  ),
-                );
-              }),
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/bb_court.jpg',
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: AnimatedBuilder(
+                animation: controller,
+                builder: (context, child) {
+                  return Container(
+                    width: 100,
+                    height: 100,
+                    transform: Matrix4.translationValues(
+                      0,
+                      positionAnimation.value,
+                      0,
+                    ),
+                    child: Image.asset(
+                      'assets/images/bb.png',
+                    ),
+                  );
+                }),
+          ),
         ),
       ),
     );
